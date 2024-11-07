@@ -11,13 +11,16 @@ sudo apt-get install --no-install-recommends xserver-xorg-video-all \
 # Go to: Boot Options > Console Autologin
 sudo raspi-config
 Next edit /home/pi/.bash_profile to automatically start the gui. There's a check for the bash context first, so you don't accidentally start chromium whenever you ssh in.
+
 ----------------------------------------------------------------------------------
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]
 then
   startx
 fi
 ----------------------------------------------------------------------------------
+
 The last bit is to setup /home/pi/.xinitrc to run chromium whenever you run startx. Here's the full list of chromium arguments.
+
 ----------------------------------------------------------------------------------
 #!/usr/bin/env sh
 xset -dpms
@@ -40,7 +43,9 @@ chromium-browser --kiosk --start-fullscreen https://yourfancywebsite.com \
   --overscroll-history-navigation=0 \
   --disable-pinch
 -----------------------------------------------------------------------------------
-  the full scale version of the .xinitrc file is given in the files
+
+The full scale version of the .xinitrc file is given in the files.
+
 It disables the cursor and screensaver. Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display. And set --window-size to the size of your display (it's horizontal first and vertical after the comma).
 
 You may also want to uncomment disable_overscan=1 in /boot/config.txt so that the pi boots up using the full display.
