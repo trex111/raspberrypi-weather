@@ -5,7 +5,7 @@ xset s noblank
 
 
 
-exec matchbox-window-manager -use_titlebar no & ./4x4.sh &
+exec matchbox-window-manager -use_titlebar no &
 
 unclutter &
 
