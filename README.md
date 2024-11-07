@@ -1,3 +1,5 @@
+# Installation Steps
+# step 1
 Start with Raspbian Buster (https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-06-24/).
 Then install the packages required to run chromium and set the pi to boot straight into to the console.
 
@@ -7,18 +9,18 @@ Then install the packages required to run chromium and set the pi to boot straig
 	sudo apt-get install --no-install-recommends xserver-xorg-video-all \
 	  xserver-xorg-input-all xserver-xorg-core xinit x11-xserver-utils \
 	  chromium-browser unclutter
-
-# Go to: Boot Options > Console Autologin
+# step 2
+Go to: Boot Options > Console Autologin
 	
 	sudo raspi-config
-
+# step 3
 Next edit /home/pi/.bash_profile to automatically start the gui. There's a check for the bash context first, so you don't accidentally start chromium whenever you ssh in.
 	
  	if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]
 	then
   		startx
 	fi
-
+# step 4
 The last bit is to setup /home/pi/.xinitrc to run chromium whenever you run startx.
 
 	sudo nano /home/pi/.xinitrc
@@ -49,11 +51,13 @@ Here's the full list of chromium arguments(https://peter.sh/experiments/chromium
 -----------------------------------------------------------------------------------
 Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display.
 The full scale version of the .xinitrc file is given in the file .xinitrc.
+# step 5
+Make the .xinitrc file executable ( you can select it in the file properties if you have the admin rigths)
+	
+ 	sudo chmod +x /home/pi/.xinitrc
 
-	sudo chmod +x /home/pi/.xinitrc
 
-
-
+# step 6
 You may also want to uncomment disable_overscan=1 in /boot/config.txt so that the pi boots up using the full display.
 
 	sudo nano /boot/config.txt
