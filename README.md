@@ -11,31 +11,31 @@ sudo apt-get install --no-install-recommends xserver-xorg-video-all \
 # Go to: Boot Options > Console Autologin
 sudo raspi-config
 Next edit /home/pi/.bash_profile to automatically start the gui. There's a check for the bash context first, so you don't accidentally start chromium whenever you ssh in.
-plese refer the startx file for the code to enter
+
 
 The last bit is to setup /home/pi/.xinitrc to run chromium whenever you run startx. Here's the full list of chromium arguments.
 
 ----------------------------------------------------------------------------------
-#!/usr/bin/env sh
+	#!/usr/bin/env sh
 
-xset -dpms
-xset s off
-xset s noblank
+	xset -dpms
+	xset s off
+	xset s noblank
 
-exec matchbox-window-manager -use_titlebar no &
+	exec matchbox-window-manager -use_titlebar no &
 
-unclutter &
+	unclutter &
 
-chromium-browser --kiosk --start-fullscreen /home/pi/weather_forcast/weatherforcast.html
+	chromium-browser --kiosk --start-fullscreen /home/pi/weather_forcast/weatherforcast.html
 
-	--window-position=0,0
-	--incognito \
-	--noerrdialogs \
-	--no-first-run \
-	--fast \
-	--fast-start \
-	--disable-infobars \
-	--display=:0 \
+		--window-position=0,0
+		--incognito \
+		--noerrdialogs \
+		--no-first-run \
+		--fast \
+		--fast-start \
+		--disable-infobars \
+		--display=:0 \
 -----------------------------------------------------------------------------------
 
 The full scale version of the .xinitrc file is given in the files.
