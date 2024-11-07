@@ -20,22 +20,17 @@ The last bit is to setup /home/pi/.xinitrc to run chromium whenever you run star
 xset -dpms
 xset s off
 xset s noblank
-
+exec matchbox-window-manager -use_titlebar no &
 unclutter &
-chromium-browser --kiosk --start-fullscreen https://yourfancywebsite.com \
-  --window-size=1920,1080 \
-  --window-position=0,0 \
-  --incognito \
-  --noerrdialogs \
-  --disable-translate \
-  --no-first-run \
-  --fast \
-  --fast-start \
-  --disable-infobars \
-  --disable-features=TranslateUI \
-  --disk-cache-dir=/dev/null \
-  --overscroll-history-navigation=0 \
-  --disable-pinch
+chromium-browser --kiosk --start-fullscreen /home/pi/weather_forcast/weatherforcast.html
+	--window-position=0,0
+	--incognito \
+	--noerrdialogs \
+	--no-first-run \
+	--fast \
+	--fast-start \
+	--disable-infobars \
+	--display=:0 \
 -----------------------------------------------------------------------------------
 
 The full scale version of the .xinitrc file is given in the files.
