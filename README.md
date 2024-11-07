@@ -45,11 +45,13 @@ Here's the full list of chromium arguments(https://peter.sh/experiments/chromium
 		--display=:0 \
 -----------------------------------------------------------------------------------
 
-The full scale version of the .xinitrc file is given in the files.
+The full scale version of the .xinitrc file is given in the file .xinitrc.
 
-It disables the cursor and screensaver. Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display. And set --window-size to the size of your display (it's horizontal first and vertical after the comma).
+It disables the cursor and screensaver. Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display.
 
 You may also want to uncomment disable_overscan=1 in /boot/config.txt so that the pi boots up using the full display.
+
+	sudo nano /boot/config.txt
 
 Now whenever the pi boots up it'll go into the console then on into chromium. If you want to exit you can hit Alt+F4, then enter startx to start up the browser again.
 
