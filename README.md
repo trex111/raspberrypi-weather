@@ -20,6 +20,9 @@ Next edit /home/pi/.bash_profile to automatically start the gui. There's a check
 	fi
 
 The last bit is to setup /home/pi/.xinitrc to run chromium whenever you run startx.
+
+	sudo nano /home/pi/.xinitrc
+
 Here's the full list of chromium arguments(https://peter.sh/experiments/chromium-command-line-switches/).
 
 ----------------------------------------------------------------------------------
@@ -46,6 +49,8 @@ Here's the full list of chromium arguments(https://peter.sh/experiments/chromium
 -----------------------------------------------------------------------------------
 
 The full scale version of the .xinitrc file is given in the file .xinitrc.
+
+	sudo chmod +x /home/pi/.xinitrc
 
 It disables the cursor and screensaver. Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display.
 
