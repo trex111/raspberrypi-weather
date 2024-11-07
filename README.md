@@ -47,12 +47,12 @@ Here's the full list of chromium arguments(https://peter.sh/experiments/chromium
 		--disable-infobars \
 		--display=:0 \
 -----------------------------------------------------------------------------------
-
+Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display.
 The full scale version of the .xinitrc file is given in the file .xinitrc.
 
 	sudo chmod +x /home/pi/.xinitrc
 
-It disables the cursor and screensaver. Then runs chromium with *all* of the flags. Set https://yourfancywebsite.com to the website which you want to display.
+
 
 You may also want to uncomment disable_overscan=1 in /boot/config.txt so that the pi boots up using the full display.
 
