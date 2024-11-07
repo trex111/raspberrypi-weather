@@ -11,7 +11,11 @@ sudo apt-get install --no-install-recommends xserver-xorg-video-all \
 # Go to: Boot Options > Console Autologin
 sudo raspi-config
 Next edit /home/pi/.bash_profile to automatically start the gui. There's a check for the bash context first, so you don't accidentally start chromium whenever you ssh in.
-
+	
+ 	if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]
+	then
+  		startx
+	fi
 
 The last bit is to setup /home/pi/.xinitrc to run chromium whenever you run startx. Here's the full list of chromium arguments.
 
