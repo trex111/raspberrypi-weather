@@ -27,6 +27,7 @@ exec matchbox-window-manager -use_titlebar no &
 unclutter &
 
 chromium-browser --kiosk --start-fullscreen /home/pi/weather_forcast/weatherforcast.html
+
 	--window-position=0,0
 	--incognito \
 	--noerrdialogs \
